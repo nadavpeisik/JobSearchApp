@@ -23,14 +23,14 @@ public class JobListingService {
 	private List<JobListing> jobListings;
 	
 	
-	
+	// ############### METHODS ###############
 	
 	public List<JobListing> getJobListings() {
 		return jobListings;
 	}
 			
 		
-	public List<JobListing> getLatestJobs(SiteName[] siteNames, String keyword) {
+	public List<JobListing> getNewJobListings(SiteName[] siteNames, String keyword) {
 		List<JobListing> latestJobs = new ArrayList<>();
 		JobSiteScraper scraper;
 		
@@ -43,6 +43,15 @@ public class JobListingService {
 		
 		return latestJobs;
 	}
+	
+	public List<JobListing> getJobListingsByCompany(String companyName) {
+		return jobListings.stream().filter(j -> j.getCompanyName().equals(companyName)).toList();
+	}
+	
+	public List<JobListing> getJobListingByJobTitle(String jobTitle) {
+		return jobListings.stream().filter(j -> j.getJobTitle().equals(jobTitle)).toList();
+	}
+	
 	
 
 }

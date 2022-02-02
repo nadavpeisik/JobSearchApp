@@ -26,6 +26,10 @@ public class JobListing {
     public void setLink(String link) {
         this.link = link;
     }
+    
+    public String getCompanyName() {
+    	return this.company;
+    }
 
     @Override
     public String toString() {
