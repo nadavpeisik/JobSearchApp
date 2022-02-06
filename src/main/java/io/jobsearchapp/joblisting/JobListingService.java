@@ -33,7 +33,7 @@ public class JobListingService {
 	}
 	
 	public List<JobListing> getJobListingsByCompany(String companyName) {
-		return jlRepository.findByCompany(companyName);
+		return jlRepository.findByCompanyName(companyName);
 	
 	}
 	
@@ -52,6 +52,13 @@ public class JobListingService {
 	public void deleteJobListing(int id) {
 		jlRepository.deleteById(id);
 	}
+
+	public void deleteAll() {
+		jlRepository.deleteAll();
+		
+	}
+
+
 
 	
 	

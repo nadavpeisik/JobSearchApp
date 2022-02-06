@@ -63,7 +63,7 @@ public class LinkedInScraper extends JobSiteScraper {
 //                    String companyName = companyAnchor.asNormalizedText();
 //                    String companyPage = companyAnchor.getHrefAttribute();
 
-                    //jobListings.add(new JobListing(jobTitle, companyName, jobLink, siteName));
+                    jobListings.add(new JobListing(jobTitle, companyName, jobLink, siteName));
                 }
 
                 /// JOB DESCRIPTION (MAYBE IMPLEMENT LATER)

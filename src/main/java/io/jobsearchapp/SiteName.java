@@ -1,5 +1,7 @@
 package io.jobsearchapp;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+
 public enum SiteName {
 	LINKEDIN("LinkedIn"),
 	DRUSHIM("Drushim"),
@@ -13,10 +15,32 @@ public enum SiteName {
 		this.siteName = siteName;
 	}
 	
-	public boolean equalsName(String otherName) {
-		return this.siteName.equals(otherName);
+	private boolean equalsName(String otherName) {
+		return this.siteName.toLowerCase().equals(otherName.toLowerCase());
 	}
 	
+	@JsonCreator
+	public static SiteName fromText(String text){
+        for(SiteName siteName : SiteName.values()){
+            if(siteName.equalsName(text)){
+                return siteName;
+            }
+        }
+        throw new IllegalArgumentException();
+    }
+	
+	
+//	@JsonCreator
+//	public static SiteName fromText(String text){
+//        for(SiteName siteName : SiteName.values()){
+//            if(siteName.toString().equals(text)){
+//                return siteName;
+//            }
+//        }
+//        throw new IllegalArgumentException();
+//    }
+	
+	@Override
 	public String toString() {
 		return this.siteName;
 	}

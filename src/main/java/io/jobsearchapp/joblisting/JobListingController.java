@@ -19,7 +19,6 @@ public class JobListingController {
 	
 	/* GET Methods */
 	
-	
 	@GetMapping("/joblistings")
 	public List<JobListing> getAllJobListings () {
 		return jobListingService.getAllJobListings();
@@ -64,6 +63,11 @@ public class JobListingController {
 	@DeleteMapping("/joblistings/{id}")
 	public void deleteJobListing(@PathVariable int id) {
 		jobListingService.deleteJobListing(id);
+	}
+	
+	@DeleteMapping("/joblistings")
+	public void deleteAll() {
+		jobListingService.deleteAll();
 	}
 	
 	
