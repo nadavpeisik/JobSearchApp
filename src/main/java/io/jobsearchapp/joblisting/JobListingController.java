@@ -3,10 +3,12 @@ package io.jobsearchapp.joblisting;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -17,48 +19,49 @@ public class JobListingController {
 	
 	/* GET Methods */
 	
-	@RequestMapping("/joblistings")
+	
+	@GetMapping("/joblistings")
 	public List<JobListing> getAllJobListings () {
 		return jobListingService.getAllJobListings();
 	}
 	
-	@RequestMapping("/joblistings/{id}")
+	@GetMapping("/joblistings/{id}")
 	public JobListing getJobListingById(@PathVariable(required=true) int id) {
 		return jobListingService.getJobListingById(id);
 	}
 	
-	@RequestMapping("/joblistings/{company}")
-	public List<JobListing> getJobListingsByCompany(@PathVariable(value="company", required=true) String companyName) {
-		return jobListingService.getJobListingsByCompany(companyName);
-	}
-	
-	@RequestMapping("/joblistings/{jobtitle}")
+	@GetMapping("/joblistings/{jobtitle}")
 	public List<JobListing> getJobListingsByJobTitle (@PathVariable(value="jobtitle", required=true) String jobTitle) {
 		return jobListingService.getJobListingByJobTitle(jobTitle);
 	}
 	
-	@RequestMapping("/joblistings/{site}")
+	@GetMapping("/joblistings/{company}")
+	public List<JobListing> getJobListingsByCompany(@PathVariable(value="company", required=true) String companyName) {
+		return jobListingService.getJobListingsByCompany(companyName);
+	}
+	
+	@GetMapping("/joblistings/{site}")
 	public List<JobListing> getJobListingsBySite (@PathVariable(value="site", required=true) String siteName) {
-		return jobListingService.getJobListingBySite(siteName);
+		return jobListingService.getJobListingBySiteName(siteName);
 	}
 	
 	/* POST Methods */
 	
-	@RequestMapping(method=RequestMethod.POST, value="/joblistings")
+	@PostMapping("/joblistings")
 	public void addJobListing(@RequestBody JobListing jobListing) {
 		jobListingService.addJobListing(jobListing);
 	}
 	
 	/* UPDATE Methods */
 	
-	@RequestMapping(method=RequestMethod.PUT, value="/joblistings/{id}")
+	@PutMapping("/joblistings/{id}")
 	public void updateJobListing(@RequestBody JobListing jobListing, @PathVariable int id) {
 		jobListingService.updateJobListing(jobListing);
 	}
 	
 	/* DELETE Methods */
 	
-	@RequestMapping(method=RequestMethod.DELETE, value="/joblistings/{id}")
+	@DeleteMapping("/joblistings/{id}")
 	public void deleteJobListing(@PathVariable int id) {
 		jobListingService.deleteJobListing(id);
 	}

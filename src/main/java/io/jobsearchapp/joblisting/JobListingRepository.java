@@ -10,8 +10,6 @@ public interface JobListingRepository extends CrudRepository<JobListing, Integer
 	
 	List<JobListing> findByCompany(String companyName);
 	
-	List<JobListing> findBySite(String siteName);
+	List<JobListing> findBySiteName(String siteName);
 	
-	
-
 }

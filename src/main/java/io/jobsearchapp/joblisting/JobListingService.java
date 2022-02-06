@@ -37,8 +37,8 @@ public class JobListingService {
 	
 	}
 	
-	public List<JobListing> getJobListingBySite(String siteName) {
-		return jlRepository.findBySite(siteName);
+	public List<JobListing> getJobListingBySiteName(String siteName) {
+		return jlRepository.findBySiteName(siteName);
 	}
 
 	public void addJobListing(JobListing jobListing) {

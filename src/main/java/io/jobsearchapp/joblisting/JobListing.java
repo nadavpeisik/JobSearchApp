@@ -1,6 +1,7 @@
 package io.jobsearchapp.joblisting;
 
 import javax.persistence.Entity;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -15,7 +16,9 @@ public class JobListing {
 	private String jobTitle;
     private String company;
     private String link;
+    
     private SiteName siteName;
+    
 
     public JobListing(String jobTitle, String companyName, String link, SiteName siteName) {
         this.jobTitle = jobTitle;
