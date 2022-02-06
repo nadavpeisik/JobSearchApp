@@ -60,15 +60,20 @@ public class JobListingController {
 	
 	/* DELETE Methods */
 	
-	@DeleteMapping("/joblistings/{id}")
-	public void deleteJobListing(@PathVariable int id) {
-		jobListingService.deleteJobListing(id);
+	@DeleteMapping("/joblistings")
+	public void deleteJobListing(@RequestBody JobListing jobListing) {
+		jobListingService.deleteJobListing(jobListing);
 	}
 	
-	@DeleteMapping("/joblistings")
-	public void deleteAll() {
-		jobListingService.deleteAll();
+	@DeleteMapping("/joblistings/{id}")
+	public void deleteJobListingById(@PathVariable int id) {
+		jobListingService.deleteJobListingById(id);
 	}
+	
+//	@DeleteMapping("/joblistings")
+//	public void deleteAll() {
+//		jobListingService.deleteAll();
+//	}
 	
 	
 //	@RequestMapping("/joblistings/{sites}/{keyword}")

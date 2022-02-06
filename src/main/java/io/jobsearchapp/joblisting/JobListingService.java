@@ -49,14 +49,20 @@ public class JobListingService {
 		jlRepository.save(jobListing);
 	}
 	
-	public void deleteJobListing(int id) {
+	public void deleteJobListing(JobListing jobListing) {
+		jlRepository.delete(jobListing);
+	}
+	
+	public void deleteJobListingById(int id) {
 		jlRepository.deleteById(id);
 	}
+	
+//	public void deleteAll() {
+//		jlRepository.deleteAll();
+//		
+//	}
 
-	public void deleteAll() {
-		jlRepository.deleteAll();
-		
-	}
+	
 
 
 
