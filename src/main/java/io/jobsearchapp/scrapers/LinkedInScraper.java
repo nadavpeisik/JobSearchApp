@@ -1,8 +1,11 @@
-package io.jobsearchapp.joblisting;
+package io.jobsearchapp.scrapers;
 
 import com.gargoylesoftware.htmlunit.WebClient;
 import com.gargoylesoftware.htmlunit.html.HtmlAnchor;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
+
+import io.jobsearchapp.SiteName;
+import io.jobsearchapp.joblisting.JobListing;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -11,7 +14,8 @@ import java.util.List;
 
 
 public class LinkedInScraper extends JobSiteScraper {
-
+	
+	private static final SiteName siteName = SiteName.LINKEDIN;
     private WebClient client;
 
     public LinkedInScraper(String baseUrl) {
@@ -59,7 +63,7 @@ public class LinkedInScraper extends JobSiteScraper {
 //                    String companyName = companyAnchor.asNormalizedText();
 //                    String companyPage = companyAnchor.getHrefAttribute();
 
-                    jobListings.add(new JobListing(jobTitle, companyName, jobLink));
+                    jobListings.add(new JobListing(jobTitle, companyName, jobLink, siteName));
                 }
 
                 /// JOB DESCRIPTION (MAYBE IMPLEMENT LATER)

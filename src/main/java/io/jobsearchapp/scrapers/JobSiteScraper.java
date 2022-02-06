@@ -1,6 +1,8 @@
-package io.jobsearchapp.joblisting;
+package io.jobsearchapp.scrapers;
 
 import java.util.ArrayList;
+
+import io.jobsearchapp.joblisting.JobListing;
 
 abstract class JobSiteScraper {
     private String baseUrl;
