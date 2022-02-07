@@ -1,29 +1,26 @@
-//package io.jobsearchapp;
-//
-//import javax.persistence.AttributeConverter;
-//import javax.persistence.Converter;
-//import java.util.stream.Stream;
+package io.jobsearchapp;
 
-//@Converter(autoApply = true)
-//public class SiteNameConverter implements AttributeConverter<SiteName, String> {
-// 
-//    @Override
-//    public String convertToDatabaseColumn(SiteName siteName) {
-//        if (siteName == null) {
-//            return null;
-//        }
-//        return siteName.toString();
-//    }
-//
-//    @Override
-//    public SiteName convertToEntityAttribute(String siteName) {
-//        if (siteName == null) {
-//            return null;
-//        }
-//
-//        return Stream.of(SiteName.values())
-//          .filter(c -> c.toString().equals(siteName))
-//          .findFirst()
-//          .orElseThrow(IllegalArgumentException::new);
-//    }
-//}
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class SiteNameConverter {
+    
+	public static List<SiteName> getSiteList(String input) {
+		List<SiteName> siteNames = new ArrayList<>();
+		
+		Arrays.stream(parseSiteNames(input)).forEach(s -> siteNames.add(convertToSiteName(s)));
+		
+		return siteNames;
+	}
+	
+	private static SiteName convertToSiteName(String text) {
+		return SiteName.valueOf(text.toUpperCase());
+	}
+	
+	private static String[] parseSiteNames(String input) {
+		return input.split(",");
+	}
+    
+}
+

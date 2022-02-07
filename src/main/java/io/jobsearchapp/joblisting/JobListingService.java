@@ -61,16 +61,6 @@ public class JobListingService {
 //		jlRepository.deleteAll();
 //		
 //	}
-
-	
-
-
-
-	
-	
-	
-	
-	 
 			
 		
 //	public List<JobListing> getNewJobListings(SiteName[] siteNames, String keyword) {
@@ -87,9 +77,5 @@ public class JobListingService {
 //		
 //		return latestJobs;
 //	}
-//	
-
-	
-	
 
 }

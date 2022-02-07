@@ -4,11 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.stereotype.Service;
+
 import io.jobsearchapp.SiteName;
+import io.jobsearchapp.SiteNameConverter;
 import io.jobsearchapp.joblisting.JobListing;
 
 
-
+@Service
 public class ScrapingService {
 	// LINKS 
 	private static final String linkedInURL = "https://www.linkedin.com/jobs/search?keywords=%s"
@@ -20,10 +23,11 @@ public class ScrapingService {
 				);
 	
 
-	
-	public List<JobListing> scrape(SiteName[] siteNames, String keyword) {
+	public List<JobListing> getNewJobListings(String sites, String keyword) {
 		List<JobListing> latestJobs = new ArrayList<>();
 		JobSiteScraper scraper;
+		
+		List<SiteName> siteNames = SiteNameConverter.getSiteList(sites);
 		
 		for (SiteName siteName : siteNames) {
 			scraper = scrapers.get(siteName);
@@ -32,6 +36,5 @@ public class ScrapingService {
 		
 		return latestJobs;
 	}
-	
 
 }

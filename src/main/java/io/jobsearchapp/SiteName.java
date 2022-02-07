@@ -29,17 +29,6 @@ public enum SiteName {
         throw new IllegalArgumentException();
     }
 	
-	
-//	@JsonCreator
-//	public static SiteName fromText(String text){
-//        for(SiteName siteName : SiteName.values()){
-//            if(siteName.toString().equals(text)){
-//                return siteName;
-//            }
-//        }
-//        throw new IllegalArgumentException();
-//    }
-	
 	@Override
 	public String toString() {
 		return this.siteName;
