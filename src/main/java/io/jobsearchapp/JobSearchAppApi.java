@@ -10,5 +10,4 @@ public class JobSearchAppApi {
 		SpringApplication.run(JobSearchAppApi.class, args);
 	}
 	
-
 }

@@ -23,6 +23,7 @@ public class ScrapingController {
 			@PathVariable(required=true) String sites, 
 			@PathVariable(required=true) String keyword) {
 		//return scrapingService.getNewJobListings(new SiteName[]{SiteName.LinkedIn}, "junior");
+		System.out.println(sites);
 		return scrapingService.getNewJobListings(sites, keyword);
 	}
 
