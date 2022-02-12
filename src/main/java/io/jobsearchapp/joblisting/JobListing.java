@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import io.jobsearchapp.SiteName;
 
@@ -12,6 +13,7 @@ import io.jobsearchapp.SiteName;
 public class JobListing {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@JsonProperty
 	private int id;
 	private String jobTitle;
     private String companyName;
